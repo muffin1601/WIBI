@@ -1,0 +1,141 @@
+.testimonial-section {
+  position: relative;
+  min-height: 680px;
+  background-image: url("https://images.pexels.com/photos/31225210/pexels-photo-31225210.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.testimonial-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #F6F3E8,
+    rgba(56, 87, 133, 0.75),
+    rgba(56, 87, 133, 1) 100%
+  );
+  z-index: 1;
+}
+
+
+
+.testimonial-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 3rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.test-tag {
+  display: inline-block;
+  padding: 0.55rem 1.6rem;
+  align-self: center;
+  border-radius: 999px;
+ border: 2px solid var(--color-primary-dark);
+  background: rgba(255, 255, 255, 0);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  margin-bottom: 1.4rem;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform 0.8s ease;
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  padding: 2rem 3rem;
+  text-align: center;
+}
+
+.quote-mark {
+  font-size: 6rem;
+  color: var(--color-primary-dark);
+  display: block;
+  margin-bottom: 0rem;
+}
+
+.testimonial-quote {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #fff;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.testimonial-name {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary-light);
+}
+
+.testimonial-role {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.testimonial-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 12px 28px rgba(56, 87, 133, 0.45),
+    0 0 22px rgba(99, 132, 170, 0.35);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-arrow svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+.testimonial-arrow:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.testimonial-arrow.left {
+  left: 0;
+}
+
+.testimonial-arrow.right {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .testimonial-quote {
+    font-size: 1.25rem;
+  }
+
+  .testimonial-arrow {
+    width: 44px;
+    height: 44px;
+  }
+}

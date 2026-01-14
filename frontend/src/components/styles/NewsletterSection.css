@@ -1,0 +1,183 @@
+.newsletter-section {
+  position: relative;
+  min-height: 620px;
+  background-image: url("https://images.pexels.com/photos/33836952/pexels-photo-33836952.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem;
+  overflow: hidden;
+}
+
+.newsletter-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary-dark),
+    rgba(56, 87, 133, 0.55),
+    var(--color-primary-dark)
+  );
+  z-index: 1;
+}
+
+.newsletter-container {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  text-align: center;
+}
+
+.newsletter-tag {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-primary-light);
+  font-weight: 600;
+  margin-bottom: 1.4rem;
+}
+
+.newsletter-heading {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 1.2rem;
+}
+
+.newsletter-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2.6rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  width: 100%;
+  max-width: 360px;
+  padding: 0.9rem 1.4rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.newsletter-form button {
+  padding: 0.9rem 2.2rem;
+  border-radius:16px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 14px 32px rgba(56, 87, 133, 0.45),
+    0 0 28px rgba(99, 132, 170, 0.45);
+}
+
+#checkbox-news {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+#checkbox-news:hover {
+  border-color: var(--color-primary-light);
+}
+
+#checkbox-news:checked {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 4px rgba(99, 132, 170, 0.25),
+    0 4px 12px rgba(56, 87, 133, 0.6);
+}
+
+#checkbox-news:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+.newsletter-consent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+
+.newsletter-consent input {
+  accent-color: var(--color-primary);
+}
+
+.newsletter-note {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-note a {
+  color: var(--color-primary-light);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .newsletter-heading {
+    font-size: 2.2rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter-form input {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,9 @@
+.home-wrapper {
+  background: linear-gradient(
+    180deg,
+    rgba(64, 83, 131, 0.95) 0%,
+    rgba(64, 83, 131, 0.92) 50%,
+    rgba(64, 83, 131, 0.85) 75%,
+    rgba(64, 83, 131, 0.9) 100%
+  );
+}

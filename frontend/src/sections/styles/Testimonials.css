@@ -27,7 +27,7 @@
 .testimonial-container {
   position: relative;
   z-index: 2;
-  max-width: 1300px;
+  max-width: 70%;
   margin: auto;
   padding: 0 3rem;
   overflow: hidden;

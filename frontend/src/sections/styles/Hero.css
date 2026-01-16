@@ -127,10 +127,12 @@
 
 .hero-info {
   position: absolute;
-  bottom: 32px;
+  bottom: 2px;
+  width:60%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
+  justify-content: center;
   gap: 80px;
   padding: 44px 60px;
   border-radius: var(--border-radius-lg);

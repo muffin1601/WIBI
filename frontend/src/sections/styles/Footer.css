@@ -5,7 +5,7 @@
 }
 
 .footer-top {
-  max-width: 1400px;
+  max-width: 80%;
   margin: auto;
   display: grid;
   grid-template-columns: 1fr auto 1fr;

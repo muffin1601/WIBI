@@ -1,18 +1,18 @@
-import Navbar from "../components/Navbar"
-import Hero from "../components/Hero"
-import AboutSection from "../components/AboutSection"
+import Navbar from "../sections/Navbar"
+import Hero from "../sections/Hero"
+import AboutSection from "../sections/AboutSection"
 import "./styles/Home.css"
-import FeaturedProducts from "../components/FeaturedProducts"
-import CatalogueSection from "../components/CatalogueSection"
-import Testimonials from "../components/Testimonials"
-import CtaSection from "../components/CtaSection"
-import NewsletterSection from "../components/NewsletterSection"
-import Footer from "../components/Footer"
+import FeaturedProducts from "../sections/FeaturedProducts"
+import CatalogueSection from "../sections/CatalogueSection"
+import Testimonials from "../sections/Testimonials"
+import CtaSection from "../sections/CtaSection"
+import NewsletterSection from "../sections/NewsletterSection"
+import Footer from "../sections/Footer"
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+     
 
       <main className="home-wrapper">
         <Hero />
@@ -22,7 +22,7 @@ export default function Home() {
         <Testimonials />
         <CtaSection />
         <NewsletterSection />
-        <Footer />
+        
       </main>
 
     </>

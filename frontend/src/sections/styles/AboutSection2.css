@@ -1,0 +1,127 @@
+.about-root {
+  position: relative;
+  padding: 80px 0 120px;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-main);
+  overflow: hidden;
+}
+
+.about-layout {
+  max-width: 80%;
+  margin: auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-label {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--color-primary-dark);
+}
+
+.about-title {
+  font-size: 46px;
+  line-height: 1.15;
+  margin-bottom: 26px;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.about-paragraph {
+  font-size: 16.5px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  max-width: 620px;
+  color: var(--color-text-main);
+  opacity: 0.85;
+}
+
+.about-vision {
+  margin-top: 30px;
+  padding: 22px 26px;
+  border-left: 3px solid var(--color-primary);
+  background: var(--color-white);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+}
+
+.vision-heading {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--color-primary-dark);
+}
+
+.vision-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  opacity: 0.85;
+}
+
+.about-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-media-image {
+  width: 100%;
+  max-width: 720px;
+  filter:
+    drop-shadow(0 26px 60px rgba(0, 0, 0, 0.18))
+    drop-shadow(0 8px 18px rgba(99, 132, 170, 0.25));
+}
+
+.spin-slow {
+  animation: spin 14s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.inline-icon,
+.about-label-icon,
+.vision-icon {
+  margin-right: 8px;
+  opacity: 0.9;
+  color: var(--color-primary);
+}
+
+.float-soft {
+  animation: floatSoft 3s ease-in-out infinite;
+}
+
+.pulse-soft {
+  animation: pulseSoft 2s ease-in-out infinite;
+}
+
+.pulse-delay {
+  animation: pulseSoft 2.4s ease-in-out infinite;
+}
+
+@keyframes floatSoft {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulseSoft {
+  0% { opacity: 0.65; }
+  50% { opacity: 1; }
+  100% { opacity: 0.65; }
+}

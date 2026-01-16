@@ -15,23 +15,31 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Products", href: "/products" },
+    { name: "Catalogues", href: "/catalogues" },
+    { name: "Contact", href: "/contact" },
+  ]
+
   return (
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
-        
+
         <div className="logo">
           <img src={logo} alt="WIBI Logo" />
         </div>
 
         <nav className="nav-links">
-          {["Home", "About", "Products", "Contact"].map((item) => (
+          {navItems.map((item) => (
             <a
-              key={item}
-              href="#"
-              className={active === item ? "active" : ""}
-              onClick={() => setActive(item)}
+              key={item.name}
+              href={item.href}
+              className={active === item.name ? "active" : ""}
+              onClick={() => setActive(item.name)}
             >
-              {item}
+              {item.name}
               <span className="underline"></span>
             </a>
           ))}

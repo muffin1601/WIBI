@@ -28,7 +28,7 @@
 
 .fp-subtext {
   max-width: 720px;
-  margin: 0 auto 3.5rem;
+  margin: 0 auto 1.5rem;
   color: var(--color-text-main);
   font-size: 1.15rem;
 }
@@ -37,33 +37,48 @@
 
 .fp-carousel {
   position: relative;
+}
+
+.fp-viewport {
   overflow: hidden;
-  
+  width: 100%;
 }
 
 .fp-track {
   display: flex;
   gap: 2rem;
+  padding: 80px 0;
   will-change: transform;
 }
 
+/* ================= CARD ================= */
+
 .fp-card {
-  position: relative;
-  min-width: 280px;
+  flex: 0 0 300px;
   height: 380px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: #fff;
   text-decoration: none;
+}
+
+.fp-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
+  transform: translateY(0);
   transition: transform 0.45s ease, box-shadow 0.45s ease;
 }
 
-.fp-card:hover {
-  transform: translateY(-8px);
+/* ✔ FIX: translate INSIDE the card */
+.fp-card:hover .fp-card-inner {
+  transform: translateY(-10px);
   box-shadow:
-    0 25px 60px rgba(64, 83, 131, 0.55),
-    0 0 45px rgba(104, 129, 168, 0.45);
+    0 30px 65px rgba(64, 83, 131, 0.45),
+    0 0 25px rgba(104, 129, 168, 0.35);
 }
+
+/* ================= IMAGE ================= */
 
 .fp-image-wrap {
   position: absolute;
@@ -78,30 +93,37 @@
   height: 100%;
   margin-bottom: 80px;
   object-fit: contain;
-  transition: transform 0.7s ease;
+  transition: transform 0.6s ease;
 }
 
-.fp-card:hover img {
-  transform: scale(1.1);
+.fp-card:hover .fp-image-wrap img {
+  transform: scale(1.08);
 }
+
+/* ================= OVERLAY ================= */
 
 .fp-overlay {
   position: absolute;
   inset: 0;
+  border-radius: 18px;
   background: linear-gradient(
     to top,
     rgba(56, 87, 133, 0.95),
-    rgba(56, 87, 133, 0.3),
+    rgba(56, 87, 133, 0.35),
     rgba(56, 87, 133, 0.05)
   );
 }
+
+/* ================= CONTENT ================= */
 
 .fp-content {
   position: absolute;
   bottom: 0;
   left: 0;
+  text-align: left;
   padding: 1.6rem;
   color: #fff;
+  z-index: 2;
 }
 
 .fp-content h3 {
@@ -114,55 +136,58 @@
   opacity: 0.85;
 }
 
-.fp-cta-wrap {
-  margin-top: 4rem;
-  display: flex;
-  justify-content: center;
-}
-
-.fp-carousel {
-  position: relative;
-  overflow: hidden;
-}
+/* ================= ARROWS ================= */
 
 .fp-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(56, 87, 133, 0.25);
+  background: var(--color-primary-dark);
+  color: #fff;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary-dark);
   cursor: pointer;
-  z-index: 10;
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+  z-index: 20;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.fp-arrow.left {
+.fp-arrow-left {
   left: -22px;
 }
 
-.fp-arrow.right {
+.fp-arrow-right {
   right: -22px;
 }
 
 .fp-arrow:hover {
-  background: var(--color-primary);
-  color: var(--color-bg-light);
-  transform: translateY(-50%) scale(1.08);
-  box-shadow: 0 10px 26px rgba(56, 87, 133, 0.35);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 12px 28px rgba(56, 87, 133, 0.45);
 }
+
+/* ================= CTA ================= */
+
+.fp-cta-wrap {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
   .fp-arrow {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .fp-card {
+    flex: 0 0 250px;
+    height: 320px;
   }
 }

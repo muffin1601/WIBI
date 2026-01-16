@@ -5,7 +5,7 @@ import CatalogueSection from "../sections/CatalogueSection"
 import Testimonials from "../sections/Testimonials"
 import CtaSection from "../sections/CtaSection"
 
-export default function Contact() {
+export default function About() {
   const bannerBg =
     "https://images.pexels.com/photos/9330675/pexels-photo-9330675.jpeg"
 

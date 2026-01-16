@@ -1,0 +1,178 @@
+.enquiryModal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 25, 40, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  transform-origin: bottom;
+  animation: enquiryModalOverlayRise 0.4s ease forwards;
+}
+
+.enquiryModal-container {
+  width: 100%;
+  max-width: 680px;
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg) ;
+  padding: 2.8rem;
+  transform: translateY(100%);
+  animation: enquiryModalSlideUp 0.45s ease forwards;
+}
+
+.enquiryModal-title {
+  font-size: 1.6rem;
+  color: var(--color-text-main);
+}
+
+.enquiryModal-subtitle {
+  margin-top: 0.4rem;
+  color: var(--color-text-main);
+  opacity: 0.75;
+}
+
+.enquiryModal-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  animation: enquiryModalFormFade 0.6s ease forwards;
+}
+
+.enquiryModal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.enquiryModal-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.enquiryModal-icon {
+  color: var(--color-primary);
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+.enquiryModal-input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  outline: none;
+  background: transparent;
+  color: var(--color-text-main);
+}
+
+.enquiryModal-input::placeholder {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.enquiryModal-textarea-wrap {
+  align-items: flex-start;
+}
+
+.enquiryModal-textarea {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 0.6rem 0;
+  resize: none;
+  background: transparent;
+  color: var(--color-text-main);
+}
+
+.enquiryModal-textarea::placeholder {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.enquiryModal-button {
+  align-self: flex-start;
+  padding: 0.8rem 2.2rem;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  border-radius: var(--border-radius-md);
+  color: var(--color-white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.enquiryModal-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(56, 87, 133, 0.35);
+}
+
+@media (max-width: 600px) {
+  .enquiryModal-container {
+    padding: 2rem;
+  }
+
+  .enquiryModal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Overlay & modal animations */
+@keyframes enquiryModalSlideUp {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes enquiryModalOverlayRise {
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes enquiryModalFormFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Icon animations */
+.float-soft {
+  animation: floatSoft 3s ease-in-out infinite;
+}
+
+.pulse-soft {
+  animation: pulseSoft 2s ease-in-out infinite;
+}
+
+.pulse-delay {
+  animation: pulseSoft 2.4s ease-in-out infinite;
+}
+
+@keyframes floatSoft {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulseSoft {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}

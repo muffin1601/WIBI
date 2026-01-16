@@ -1,10 +1,11 @@
 import "./styles/Hero.css"
 import {
   Waves,
-  Droplets,
-  Globe,
   ArrowRight,
-  Mail
+  Mail,
+  ShieldCheck,
+  Settings,
+  Award
 } from "lucide-react"
 
 export default function Hero() {
@@ -27,7 +28,7 @@ export default function Hero() {
           Premium Water Solutions
         </p>
 
-        <h1>
+        <h1 className="hero-title">
           Advanced Pool & <br />
           Water Body Equipment
         </h1>
@@ -49,26 +50,29 @@ export default function Hero() {
             Contact Us
           </button>
         </div>
+
+        <p className="hero-cta-note">
+          Engineered for performance • Trusted by professionals worldwide
+        </p>
+
+        <div className="hero-highlights">
+          <div className="highlight-chip">
+            <ShieldCheck size={18} />
+            Certified Quality
+          </div>
+          <div className="highlight-chip">
+            <Settings size={18} />
+            Precision Engineered
+          </div>
+          <div className="highlight-chip">
+            <Award size={18} />
+            Global Standards
+          </div>
+        </div>
       </div>
 
-      <div className="hero-info">
-        <div>
-          <Droplets size={22} className="info-icon pulse" />
-          <h3>25+</h3>
-          <span>Years Experience</span>
-        </div>
-
-        <div>
-          <Waves size={22} className="info-icon pulse-delay" />
-          <h3>500+</h3>
-          <span>Products Delivered</span>
-        </div>
-
-        <div>
-          <Globe size={22} className="info-icon pulse-slow" />
-          <h3>Global</h3>
-          <span>Supplier Network</span>
-        </div>
+      <div className="scroll-indicator">
+        <ArrowRight size={22} className="scroll-arrow" />
       </div>
     </section>
   )

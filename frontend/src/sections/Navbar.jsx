@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import "./styles/Navbar.css"
 import logo from "/logo (3).webp"
+import EnquiryModal from "../components/EnquiryModal"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [active, setActive] = useState("Home")
+  const [openEnquiry, setOpenEnquiry] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,34 +21,46 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Products", href: "/products" },
-    { name: "Catalogues", href: "/catalogues" },
+    { name: "Catalogue", href: "/catalogue" },
     { name: "Contact", href: "/contact" },
   ]
 
   return (
-    <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="nav-container">
+    <>
+      <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className="nav-container">
 
-        <div className="logo">
-          <img src={logo} alt="WIBI Logo" />
+          <div className="logo">
+            <img src={logo} alt="WIBI Logo" />
+          </div>
+
+          <nav className="nav-links">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className={active === item.name ? "active" : ""}
+                onClick={() => setActive(item.name)}
+              >
+                {item.name}
+                <span className="underline"></span>
+              </a>
+            ))}
+          </nav>
+
+          <button
+            className="nav-btn"
+            onClick={() => setOpenEnquiry(true)}
+          >
+            Get Quote
+          </button>
         </div>
+      </header>
 
-        <nav className="nav-links">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className={active === item.name ? "active" : ""}
-              onClick={() => setActive(item.name)}
-            >
-              {item.name}
-              <span className="underline"></span>
-            </a>
-          ))}
-        </nav>
-
-        <button className="nav-btn">Get Quote</button>
-      </div>
-    </header>
+      <EnquiryModal
+        open={openEnquiry}
+        onClose={() => setOpenEnquiry(false)}
+      />
+    </>
   )
 }

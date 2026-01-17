@@ -1,20 +1,29 @@
 import { useEffect, useState } from "react"
+
+import { NavLink, Link } from "react-router-dom"
 import "./styles/Navbar.css"
 import logo from "/logo (3).webp"
 import EnquiryModal from "../components/EnquiryModal"
+import { fetchCategories } from "../api/categoryApi"
+import { ChevronDown } from "lucide-react"
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [active, setActive] = useState("Home")
+  const [isMegaOpen, setIsMegaOpen] = useState(false)
   const [openEnquiry, setOpenEnquiry] = useState(false)
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-    }
-
+    const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    fetchCategories()
+      .then(setCategories)
+      .catch(console.error)
   }, [])
 
   const navItems = [
@@ -31,36 +40,65 @@ export default function Navbar() {
         <div className="nav-container">
 
           <div className="logo">
-            <img src={logo} alt="WIBI Logo" />
+            <img src={logo} alt="Logo" />
           </div>
 
           <nav className="nav-links">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={active === item.name ? "active" : ""}
-                onClick={() => setActive(item.name)}
-              >
-                {item.name}
-                <span className="underline"></span>
-              </a>
-            ))}
+            {navItems.map((item) =>
+              item.name === "Products" ? (
+                <div
+                  className="nav-item mega-wrapper"
+                  key={item.name}
+                  onMouseEnter={() => setIsMegaOpen(true)}
+                  onMouseLeave={() => setIsMegaOpen(false)}
+                >
+                  <button
+                    type="button"
+                    className={`products-link ${isMegaOpen ? "active" : ""}`}
+                  >
+                    Products
+                    <ChevronDown size={16} className="dropdown-arrow" />
+                    <span className="underline"></span>
+                  </button>
+
+                  {/* MEGA MENU */}
+                  {isMegaOpen && (
+                    <div className="mega-menu">
+                      <div className="mega-grid">
+                        {categories.map(cat => (
+                          <Link
+                            key={cat._id}
+                            to={`/categories/${cat.slug}`}
+                            className="mega-card"
+                            onClick={() => setIsMegaOpen(false)} // ✅ CLOSE ON CLICK
+                          >
+                            <h4>{cat.name}</h4>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                  <NavLink
+                    key={item.name}
+                    to={item.href}
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                  >
+                    {item.name}
+                    <span className="underline"></span>
+                  </NavLink>
+              )
+            )}
           </nav>
 
-          <button
-            className="nav-btn"
-            onClick={() => setOpenEnquiry(true)}
-          >
+          <button className="nav-btn" onClick={() => setOpenEnquiry(true)}>
             Get Quote
           </button>
         </div>
       </header>
 
-      <EnquiryModal
-        open={openEnquiry}
-        onClose={() => setOpenEnquiry(false)}
-      />
+      <EnquiryModal open={openEnquiry} onClose={() => setOpenEnquiry(false)} />
     </>
   )
 }

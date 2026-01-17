@@ -103,7 +103,7 @@ export default function FeaturedProducts() {
         </div>
 
         <div className="fp-cta-wrap">
-          <Link to="/products" className="primary-btn">
+          <Link to="/categories" className="primary-btn">
             View All Products
             <ArrowRight size={18} className="btn-icon" />
           </Link>

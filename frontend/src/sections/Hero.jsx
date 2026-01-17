@@ -40,12 +40,12 @@ export default function Hero() {
         </p>
 
         <div className="hero-actions">
-          <button className="primary-btn">
+          <button onClick={() => window.location.href = "/categories"} className="primary-btn">
             Explore Products
             <ArrowRight size={18} className="btn-icon" />
           </button>
 
-          <button className="secondary-btn">
+          <button onClick={() => window.location.href = "mailto:contact@wibi.com"} className="secondary-btn">
             <Mail size={16} className="btn-icon" />
             Contact Us
           </button>

@@ -1,14 +1,12 @@
 import { useEffect, useRef } from "react"
 import { Link, useParams } from "react-router-dom"
-import "./styles/CategorySection.css" // reuse same styles
+import "./styles/CategorySection.css"
 
 export default function SubcategorySection({ subcategories }) {
   const sectionRef = useRef(null)
-  const { slug: categorySlug } = useParams()
+  const { slug } = useParams()
 
   useEffect(() => {
-    if (!sectionRef.current) return
-
     const cards = sectionRef.current.querySelectorAll(".category-card")
 
     const observer = new IntersectionObserver(
@@ -24,7 +22,6 @@ export default function SubcategorySection({ subcategories }) {
     )
 
     observer.observe(sectionRef.current)
-
     return () => observer.disconnect()
   }, [subcategories])
 
@@ -35,17 +32,14 @@ export default function SubcategorySection({ subcategories }) {
           {subcategories.map((sub) => (
             <Link
               key={sub._id || sub.slug}
-              to={`/products/${categorySlug}/${sub.slug}`}
+              to={`/products/${slug}/${sub.slug}`}
               className="category-card reveal"
             >
               <img
                 src={sub.image || "/images/categories/default.webp"}
                 alt={sub.name}
-                loading="lazy"
               />
-
-              <div className="overlay"></div>
-
+              <div className="overlay" />
               <div className="card-content">
                 <h3>{sub.name}</h3>
               </div>

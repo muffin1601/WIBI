@@ -2,12 +2,14 @@ import axios from "axios"
 
 const API = `${import.meta.env.VITE_API_URL}/products`
 
-export const fetchProducts = (category, subcategory) => {
+export const fetchProducts = async (category, subcategory) => {
   let url = `${API}/${category}`
+  if (subcategory) url += `/${subcategory}`
+  const res = await axios.get(url)
+  return res.data
+}
 
-  if (subcategory) {
-    url += `/${subcategory}`
-  }
-
-  return axios.get(url).then(res => res.data)
+export const fetchProductById = async (id) => {
+  const res = await axios.get(`${API}/by-id/${id}`)
+  return res.data
 }

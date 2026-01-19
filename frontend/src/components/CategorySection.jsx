@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { categoryImages } from "../data/categoryImages"
 import "./styles/CategorySection.css"
 
 export default function CategorySection({ categories }) {
   const sectionRef = useRef(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const cards = sectionRef.current.querySelectorAll(".category-card")
@@ -25,13 +26,17 @@ export default function CategorySection({ categories }) {
     return () => observer.disconnect()
   }, [])
 
+  const handleClick = (cat) => {
+    if (cat.subcategories?.length > 0) {
+      navigate(`/categories/${cat.slug}`)
+    } else {
+      navigate(`/products/${cat.slug}`)
+    }
+  }
+
   return (
     <section className="categories-section" ref={sectionRef}>
       <div className="container">
-        {/* <h2 className="section-title reveal in-view">
-          Explore Our Categories
-        </h2> */}
-
         <div className="categories-grid">
           {categories.map((cat) => {
             const matchedImage = categoryImages.find(
@@ -39,22 +44,20 @@ export default function CategorySection({ categories }) {
             )
 
             return (
-              <Link
-                to={`/categories/${cat.slug}`}
+              <div
                 key={cat._id || cat.slug}
                 className="category-card reveal"
+                onClick={() => handleClick(cat)}
               >
                 <img
                   src={matchedImage?.image || "/images/categories/default.webp"}
                   alt={cat.name}
                 />
-
-                <div className="overlay"></div>
-
+                <div className="overlay" />
                 <div className="card-content">
                   <h3>{cat.name}</h3>
                 </div>
-              </Link>
+              </div>
             )
           })}
         </div>

@@ -2,19 +2,15 @@ import express from "express"
 import {
   getProductsByCategory,
   getProductsByCategoryAndSubcategory,
-  getSingleProduct,
+  getProductById,
   createProduct,
 } from "../controllers/productController.js"
 
 const router = express.Router()
 
-//  IMPORTANT: specific routes FIRST
-router.get("/single/:id", getSingleProduct)
-
-//  category + subcategory
+// IMPORTANT: order matters
+router.get("/by-id/:id", getProductById)
 router.get("/:category/:subcategory", getProductsByCategoryAndSubcategory)
-
-//  category only
 router.get("/:category", getProductsByCategory)
 
 // admin

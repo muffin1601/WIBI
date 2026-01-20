@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react"
-
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import "./styles/Navbar.css"
 import logo from "/logo (3).webp"
 import EnquiryModal from "../components/EnquiryModal"
 import { fetchCategories } from "../api/categoryApi"
 import { ChevronDown } from "lucide-react"
 
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [isMegaOpen, setIsMegaOpen] = useState(false)
   const [openEnquiry, setOpenEnquiry] = useState(false)
   const [categories, setCategories] = useState([])
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -34,11 +34,21 @@ export default function Navbar() {
     { name: "Contact", href: "/contact" },
   ]
 
+  // ✅ SAME LOGIC AS CategorySection
+  const handleCategoryClick = (cat) => {
+    setIsMegaOpen(false)
+
+    if (cat.subcategories?.length > 0) {
+      navigate(`/categories/${cat.slug}`)
+    } else {
+      navigate(`/products/${cat.slug}`)
+    }
+  }
+
   return (
     <>
       <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
-
           <div className="logo">
             <img src={logo} alt="Logo" />
           </div>
@@ -65,29 +75,31 @@ export default function Navbar() {
                   {isMegaOpen && (
                     <div className="mega-menu">
                       <div className="mega-grid">
-                        {categories.map(cat => (
-                          <Link
+                        {categories.map((cat) => (
+                          <button
                             key={cat._id}
-                            to={`/categories/${cat.slug}`}
+                            type="button"
                             className="mega-card"
-                            onClick={() => setIsMegaOpen(false)} // ✅ CLOSE ON CLICK
+                            onClick={() => handleCategoryClick(cat)}
                           >
                             <h4>{cat.name}</h4>
-                          </Link>
+                          </button>
                         ))}
                       </div>
                     </div>
                   )}
                 </div>
               ) : (
-                  <NavLink
-                    key={item.name}
-                    to={item.href}
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                  >
-                    {item.name}
-                    <span className="underline"></span>
-                  </NavLink>
+                <NavLink
+                  key={item.name}
+                  to={item.href}
+                  className={({ isActive }) =>
+                    isActive ? "active" : ""
+                  }
+                >
+                  {item.name}
+                  <span className="underline"></span>
+                </NavLink>
               )
             )}
           </nav>
@@ -98,7 +110,10 @@ export default function Navbar() {
         </div>
       </header>
 
-      <EnquiryModal open={openEnquiry} onClose={() => setOpenEnquiry(false)} />
+      <EnquiryModal
+        open={openEnquiry}
+        onClose={() => setOpenEnquiry(false)}
+      />
     </>
   )
 }

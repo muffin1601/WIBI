@@ -24,6 +24,15 @@ export default function ProductGrid({ products }) {
     return () => observer.disconnect()
   }, [products])
 
+  const limitWords = (text, limit = 12) => {
+  if (!text) return ""
+  const words = text.split(" ")
+  return words.length > limit
+    ? words.slice(0, limit).join(" ") + "..."
+    : text
+}
+
+
   return (
     <section className="product-grid-section" ref={sectionRef}>
       <div className="product-grid-container">
@@ -44,7 +53,9 @@ export default function ProductGrid({ products }) {
               <div className="product-grid-overlay" />
               <div className="product-grid-content">
                 <h3>{product.name}</h3>
-                {product.description && <p>{product.description}</p>}
+                {product.description && (
+                  <p>{limitWords(product.description, 12)}</p>
+                )}
               </div>
             </Link>
           ))}

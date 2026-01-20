@@ -4,7 +4,7 @@
 }
 
 .product-grid-container {
-  max-width: 1200px;
+  max-width: 80%;
   margin: auto;
   padding: 0 20px;
 }
@@ -19,7 +19,7 @@
 /* CARD */
 .product-grid-card {
   position: relative;
-  height: 380px;
+  height: 320px;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   text-decoration: none;
@@ -55,18 +55,13 @@
 }
 
 /* HOVER IMAGE ZOOM */
-.product-grid-card:hover img {
-  transform: scale(1.06);
-}
-
-/* OVERLAY */
 .product-grid-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0.2)
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.15)
   );
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -75,6 +70,7 @@
 .product-grid-card:hover .product-grid-overlay {
   opacity: 1;
 }
+
 
 /* CONTENT */
 .product-grid-content {

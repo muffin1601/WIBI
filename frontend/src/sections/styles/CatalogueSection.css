@@ -31,6 +31,20 @@
   z-index: 2;
 }
 
+.catalogue-help-text {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+.catalogue-help-text strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+
 .catalogue-tag {
   display: inline-block;
   padding: 0.55rem 1.4rem;
@@ -68,6 +82,10 @@
   font-weight: 600;
   text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .catalogue-btn.primary {

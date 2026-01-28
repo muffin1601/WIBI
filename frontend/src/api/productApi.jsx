@@ -1,15 +1,32 @@
-import axios from "axios"
+import { supabase } from "../lib/supabase"
 
-const API = `${import.meta.env.VITE_API_URL}/products`
+export const fetchProducts = async (category) => {
+  const { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("category", category)
+    .eq("status", "Active")
+    .order("created_at", { ascending: false })
 
-export const fetchProducts = async (category, subcategory) => {
-  let url = `${API}/${category}`
-  if (subcategory) url += `/${subcategory}`
-  const res = await axios.get(url)
-  return res.data
+  if (error) {
+    console.error("Error fetching products:", error)
+    throw error
+  }
+
+  return data ?? []
 }
 
 export const fetchProductById = async (id) => {
-  const res = await axios.get(`${API}/by-id/${id}`)
-  return res.data
+  const { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("id", id)
+    .single()
+
+  if (error) {
+    console.error("Error fetching product by ID:", error)
+    throw error
+  }
+
+  return data
 }

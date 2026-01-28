@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import categoryRoutes from "./routes/category.routes.js";
 import productRoutes from "./routes/product.routes.js"
+import emailRoutes from "./routes/emailRoutes.js"
 
 dotenv.config();
 connectDB();
@@ -13,6 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/email", emailRoutes)
 app.use("/api/categories", categoryRoutes);
 app.use("/api/products", productRoutes)
 

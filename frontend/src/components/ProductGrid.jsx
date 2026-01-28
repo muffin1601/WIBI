@@ -1,60 +1,43 @@
-import { useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import "./styles/ProductGrid.css"
 
 export default function ProductGrid({ products }) {
-  const sectionRef = useRef(null)
-
-  useEffect(() => {
-    const cards = sectionRef.current.querySelectorAll(".product-grid-card")
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          cards.forEach((card, i) => {
-            card.style.transitionDelay = `${i * 120}ms`
-            card.classList.add("product-grid-in-view")
-          })
-        }
-      },
-      { threshold: 0.25 }
-    )
-
-    observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [products])
-
   const limitWords = (text, limit = 12) => {
-  if (!text) return ""
-  const words = text.split(" ")
-  return words.length > limit
-    ? words.slice(0, limit).join(" ") + "..."
-    : text
-}
-
+    if (!text) return ""
+    const words = text.split(" ")
+    return words.length > limit
+      ? words.slice(0, limit).join(" ") + "..."
+      : text
+  }
 
   return (
-    <section className="product-grid-section" ref={sectionRef}>
-      <div className="product-grid-container">
-        <div className="product-grid-layout">
+    <section className="pg-section">
+      <div className="pg-container">
+        <div className="pg-grid">
           {products.map((product) => (
             <Link
-              key={product._id}
-              to={`/product/${product._id}`}
-              className="product-grid-card"
+              key={product.id}
+              to={`/product/${String(product.id)}`}
+              className="pg-card"
             >
-              <img
-                src={
-                  product.data?.images?.[0] ||
-                  "/images/products/default.webp"
-                }
-                alt={product.name}
-              />
-              <div className="product-grid-overlay" />
-              <div className="product-grid-content">
-                <h3>{product.name}</h3>
+              <div className="pg-image-wrapper">
+                <img
+                  className="pg-image"
+                  src={
+                    product.data?.images?.[0] ||
+                    "/images/products/default.webp"
+                  }
+                  alt={product.name}
+                />
+                <div className="pg-overlay" />
+              </div>
+
+              <div className="pg-content">
+                <h3 className="pg-title">{product.name}</h3>
                 {product.description && (
-                  <p>{limitWords(product.description, 12)}</p>
+                  <p className="pg-description">
+                    {limitWords(product.description, 12)}
+                  </p>
                 )}
               </div>
             </Link>

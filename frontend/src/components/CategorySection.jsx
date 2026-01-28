@@ -27,11 +27,9 @@ export default function CategorySection({ categories }) {
   }, [])
 
   const handleClick = (cat) => {
-    if (cat.subcategories?.length > 0) {
-      navigate(`/categories/${cat.slug}`)
-    } else {
+    
       navigate(`/products/${cat.slug}`)
-    }
+    
   }
 
   return (
@@ -45,7 +43,7 @@ export default function CategorySection({ categories }) {
 
             return (
               <div
-                key={cat._id || cat.slug}
+                key={cat.id || cat.slug}
                 className="category-card reveal"
                 onClick={() => handleClick(cat)}
               >

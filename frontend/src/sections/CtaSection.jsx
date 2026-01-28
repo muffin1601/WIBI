@@ -49,7 +49,7 @@ export default function CtaSection() {
               Contact Our Experts
             </a>
 
-            <a href="/products" className="cta-btn secondary">
+            <a href="/categories" className="cta-btn secondary">
               Explore Products
             </a>
           </div>

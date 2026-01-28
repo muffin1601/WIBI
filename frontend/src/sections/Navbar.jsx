@@ -34,15 +34,13 @@ export default function Navbar() {
     { name: "Contact", href: "/contact" },
   ]
 
-  // ✅ SAME LOGIC AS CategorySection
+
   const handleCategoryClick = (cat) => {
     setIsMegaOpen(false)
 
-    if (cat.subcategories?.length > 0) {
-      navigate(`/categories/${cat.slug}`)
-    } else {
+   
       navigate(`/products/${cat.slug}`)
-    }
+    
   }
 
   return (
@@ -77,7 +75,7 @@ export default function Navbar() {
                       <div className="mega-grid">
                         {categories.map((cat) => (
                           <button
-                            key={cat._id}
+                            key={cat.id}
                             type="button"
                             className="mega-card"
                             onClick={() => handleCategoryClick(cat)}

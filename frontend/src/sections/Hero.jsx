@@ -45,7 +45,7 @@ export default function Hero() {
             <ArrowRight size={18} className="btn-icon" />
           </button>
 
-          <button onClick={() => window.location.href = "mailto:contact@wibi.com"} className="secondary-btn">
+          <button onClick={() => window.location.href = "/contact"} className="secondary-btn">
             <Mail size={16} className="btn-icon" />
             Contact Us
           </button>

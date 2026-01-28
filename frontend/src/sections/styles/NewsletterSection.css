@@ -67,8 +67,8 @@
   max-width: 360px;
   padding: 0.9rem 1.4rem;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.534);
+  background: rgba(255, 255, 255, 0.192);
   color: #fff;
   font-size: 1rem;
   outline: none;
@@ -179,5 +179,55 @@
 
   .newsletter-form input {
     max-width: 100%;
+  }
+}
+
+/* ===============================
+   Newsletter Success / Error
+================================ */
+
+.newsletter-success,
+.newsletter-error {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  animation: fadeSlideUp 0.4s ease;
+}
+
+/* Success */
+.newsletter-success {
+  background: rgba(125, 255, 179, 0.18);
+  color: #b7ffd6;
+  border: 1px solid rgba(125, 255, 179, 0.35);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.25),
+    0 0 18px rgba(125, 255, 179, 0.35);
+}
+
+/* Error */
+.newsletter-error {
+  background: rgba(255, 155, 155, 0.18);
+  color: #ffd1d1;
+  border: 1px solid rgba(255, 155, 155, 0.35);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.25),
+    0 0 18px rgba(255, 155, 155, 0.35);
+}
+
+/* Entrance animation */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

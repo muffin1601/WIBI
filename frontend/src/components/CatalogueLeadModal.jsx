@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react"
 import "./styles/EnquiryModal.css"
-import { User, Mail, Phone, MapPin, MessageSquare } from "lucide-react"
+import { User, Mail, Phone, MapPin } from "lucide-react"
 import { supabase } from "../lib/supabase"
 import api from "../api/axios"
 
-export default function EnquiryModal({ open, onClose, onSuccess }) {
+
+export default function CatalogueLeadModal({
+  open,
+  onClose,
+  onSuccess,
+}) {
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
-    location: "",
-    message: ""
+    location: ""
   })
-
-  const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto"
@@ -26,51 +29,59 @@ export default function EnquiryModal({ open, onClose, onSuccess }) {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const sendEnquiryEmail = async () => {
-    return api.post("/email/send-enquiry", {
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      location: form.location,
-      message: form.message
-    })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-
-   
-    const { error } = await supabase
-  .from("catalogue_requests")
-  .insert([{
+  const sendCatalogueEmail = async () => {
+  return api.post("/email/send-catalogue-email", {
     name: form.name,
     email: form.email,
     phone: form.phone,
     location: form.location
-  }])
+  })
+}
 
 
-    if (error) {
-      console.error("Enquiry save failed:", error.message)
-      alert("Something went wrong. Please try again.")
-      setLoading(false)
-      return
-    }
-    
-    try {
-      await sendEnquiryEmail()
-      console.log("Enquiry email sent")
-    } catch (err) {
-      console.error("Enquiry email failed:", err.response?.data || err.message)
-      
-    }
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  setLoading(true)
 
+  const { error } = await supabase
+    .from("catalogue_requests")
+    .insert([
+      {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        location: form.location
+      }
+    ])
+
+  if (error) {
+    console.error("Lead capture failed:", error.message)
+    alert("Something went wrong. Please try again.")
     setLoading(false)
-
-    if (onSuccess) onSuccess()
-    onClose()
+    return
   }
+
+  try {
+    await sendCatalogueEmail()
+    console.log("Email sent successfully")
+  } catch (err) {
+    console.error(
+      "Email failed:",
+      err.response?.data || err.message
+    )
+   
+  }
+
+  setLoading(false)
+
+  if (onSuccess) {
+    onSuccess()
+  }
+
+  onClose()
+}
+
+
 
   return (
     <div className="enquiryModal-overlay" onClick={onClose}>
@@ -78,16 +89,16 @@ export default function EnquiryModal({ open, onClose, onSuccess }) {
         className="enquiryModal-container"
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className="enquiryModal-title">Send an Enquiry</h3>
+        <h3 className="enquiryModal-title">Download Catalogue</h3>
 
         <p className="enquiryModal-subtitle">
-          Tell us about your project and we’ll get back to you shortly.
+          Share your details to receive the catalogue.
         </p>
 
         <form className="enquiryModal-form" onSubmit={handleSubmit}>
           <div className="enquiryModal-grid">
             <div className="enquiryModal-field">
-              <User className="enquiryModal-icon" size={18} />
+              <User className="enquiryModal-icon float-soft" size={18} />
               <input
                 className="enquiryModal-input"
                 name="name"
@@ -99,7 +110,7 @@ export default function EnquiryModal({ open, onClose, onSuccess }) {
             </div>
 
             <div className="enquiryModal-field">
-              <Mail className="enquiryModal-icon" size={18} />
+              <Mail className="enquiryModal-icon pulse-soft" size={18} />
               <input
                 className="enquiryModal-input"
                 name="email"
@@ -112,18 +123,19 @@ export default function EnquiryModal({ open, onClose, onSuccess }) {
             </div>
 
             <div className="enquiryModal-field">
-              <Phone className="enquiryModal-icon" size={18} />
+              <Phone className="enquiryModal-icon float-soft" size={18} />
               <input
                 className="enquiryModal-input"
                 name="phone"
                 placeholder="Phone Number"
+                required
                 value={form.phone}
                 onChange={handleChange}
               />
             </div>
 
             <div className="enquiryModal-field">
-              <MapPin className="enquiryModal-icon" size={18} />
+              <MapPin className="enquiryModal-icon pulse-delay" size={18} />
               <input
                 className="enquiryModal-input"
                 name="location"
@@ -134,24 +146,8 @@ export default function EnquiryModal({ open, onClose, onSuccess }) {
             </div>
           </div>
 
-          <div className="enquiryModal-field enquiryModal-textarea-wrap">
-            <MessageSquare className="enquiryModal-icon" size={18} />
-            <textarea
-              className="enquiryModal-textarea"
-              name="message"
-              rows="4"
-              placeholder="Describe your requirements"
-              value={form.message}
-              onChange={handleChange}
-            />
-          </div>
-
-          <button
-            className="enquiryModal-button"
-            type="submit"
-            disabled={loading}
-          >
-            {loading ? "Submitting..." : "SUBMIT ENQUIRY"}
+          <button className="enquiryModal-button" type="submit" disabled={loading}>
+             {loading ? "Downloading..." : "DOWNLOAD CATALOGUE"}
           </button>
         </form>
       </div>

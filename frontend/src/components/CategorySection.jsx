@@ -8,23 +8,26 @@ export default function CategorySection({ categories }) {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const cards = sectionRef.current.querySelectorAll(".category-card")
+  if (window.innerWidth <= 768) return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          cards.forEach((card, i) => {
-            card.style.transitionDelay = `${i * 120}ms`
-            card.classList.add("in-view")
-          })
-        }
-      },
-      { threshold: 0.25 }
-    )
+  const cards = sectionRef.current.querySelectorAll(".category-card")
 
-    observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        cards.forEach((card, i) => {
+          card.style.transitionDelay = `${i * 120}ms`
+          card.classList.add("in-view")
+        })
+      }
+    },
+    { threshold: 0.25 }
+  )
+
+  observer.observe(sectionRef.current)
+  return () => observer.disconnect()
+}, [])
+
 
   const handleClick = (cat) => {
     

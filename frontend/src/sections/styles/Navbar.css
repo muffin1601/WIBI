@@ -252,3 +252,86 @@
   opacity: 1;
   transform: translateX(0);
 }
+
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-container {
+    max-width: 92%;
+    padding: 0 20px;
+  }
+
+  .logo img {
+    max-height: 46px;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px 0;
+  }
+
+  .navbar.scrolled {
+    padding: 12px 0;
+  }
+
+  .logo img {
+    max-height: 40px;
+  }
+
+  .mobile-menu-btn {
+    padding: 8px;
+    border-radius: 10px;
+    transition: background 0.25s ease;
+  }
+
+  .mobile-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+.mobile-menu-btn:active {
+  transform: scale(0.94);
+}
+
+}
+@media (max-width: 480px) {
+  .logo img {
+    max-height: 34px;
+  }
+
+  .mobile-menu-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+  .mobile-menu-btn {
+  backdrop-filter: blur(6px);
+}
+.mobile-menu-btn:active {
+  transform: scale(0.94);
+}
+
+}

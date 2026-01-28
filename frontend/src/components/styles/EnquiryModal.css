@@ -113,15 +113,6 @@
   box-shadow: 0 10px 24px rgba(56, 87, 133, 0.35);
 }
 
-@media (max-width: 600px) {
-  .enquiryModal-container {
-    padding: 2rem;
-  }
-
-  .enquiryModal-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* Overlay & modal animations */
 @keyframes enquiryModalSlideUp {
@@ -175,4 +166,67 @@
   0% { opacity: 0.6; }
   50% { opacity: 1; }
   100% { opacity: 0.6; }
+}
+
+/* ================= RESPONSIVE STYLES ================= */
+.enquiryModal-container {
+  max-width: min(680px, 94%);
+}
+
+
+/* ===== Enquiry Modal Responsive Enhancements ===== */
+
+/* Fluid modal width */
+.enquiryModal-container {
+  max-width: min(680px, 94%);
+}
+
+/* Fluid typography */
+.enquiryModal-title {
+  font-size: clamp(1.3rem, 4vw, 1.6rem);
+}
+
+.enquiryModal-subtitle {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .enquiryModal-container {
+    padding: 2.4rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .enquiryModal-overlay {
+    align-items: flex-end;
+  }
+
+  .enquiryModal-container {
+    border-radius: 18px 18px 0 0;
+    padding: 2rem 1.5rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .enquiryModal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .enquiryModal-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+  .enquiryModal-container {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .enquiryModal-title {
+    font-size: 1.2rem;
+  }
 }

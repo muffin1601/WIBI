@@ -231,3 +231,79 @@
     transform: translateY(0);
   }
 }
+
+/* ===== Newsletter Responsive Enhancements ===== */
+
+/* Fluid container */
+.newsletter-container {
+  max-width: min(760px, 92%);
+}
+
+/* Fluid typography */
+.newsletter-heading {
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+}
+
+.newsletter-text {
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+}
+
+/* Disable fixed background on mobile (performance fix) */
+@media (max-width: 1024px) {
+  .newsletter-section {
+    background-attachment: scroll;
+    min-height: auto;
+    padding: 5rem 1.25rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .newsletter-heading {
+    font-size: 2.2rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .newsletter-consent {
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .newsletter-section {
+    padding: 4rem 1rem;
+  }
+
+  .newsletter-tag {
+    font-size: 0.85rem;
+    padding: 0.45rem 1.2rem;
+  }
+
+  .newsletter-note {
+    font-size: 0.8rem;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+  .newsletter-heading {
+    font-size: 1.75rem;
+  }
+
+  .newsletter-text {
+    font-size: 0.95rem;
+  }
+}

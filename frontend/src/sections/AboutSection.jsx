@@ -38,7 +38,7 @@ export default function AboutSection() {
           </h2>
 
           <p className="about-text reveal delay-3">
-            <Cpu size={22} className="inline-icon pulse-slow" />
+            {/* <Cpu size={22} className="inline-icon pulse-slow" /> */}
             WIBI delivers premium aquatic and wellness infrastructure for the
             world’s most ambitious projects. With a portfolio of over 5,600
             solutions — from AI-enabled systems to seamless glass-edge pools —
@@ -47,7 +47,7 @@ export default function AboutSection() {
           </p>
 
           <p className="about-text reveal delay-4">
-            <Globe2 size={22} className="inline-icon pulse-delay" />
+            {/* <Globe2 size={22} className="inline-icon pulse-delay" /> */}
             Trusted across Europe, the USA, and rapidly growing markets such as
             the Indian subcontinent, China, and Southeast Asia, we bring proven
             expertise and a commitment to simplifying complexity — ensuring

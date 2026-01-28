@@ -5,12 +5,16 @@ import logo from "/logo (3).webp"
 import EnquiryModal from "../components/EnquiryModal"
 import { fetchCategories } from "../api/categoryApi"
 import { ChevronDown } from "lucide-react"
+import { Menu } from "lucide-react"
+import Sidebar from "./Sidebar"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [isMegaOpen, setIsMegaOpen] = useState(false)
   const [openEnquiry, setOpenEnquiry] = useState(false)
   const [categories, setCategories] = useState([])
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
 
   const navigate = useNavigate()
 
@@ -105,8 +109,20 @@ export default function Navbar() {
           <button className="nav-btn" onClick={() => setOpenEnquiry(true)}>
             Get Quote
           </button>
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setSidebarOpen(true)}
+          >
+            <Menu size={26} />
+          </button>
+
         </div>
       </header>
+<Sidebar
+  open={sidebarOpen}
+  onClose={() => setSidebarOpen(false)}
+  categories={categories}
+/>
 
       <EnquiryModal
         open={openEnquiry}

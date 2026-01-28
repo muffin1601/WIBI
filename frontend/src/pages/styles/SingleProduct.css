@@ -28,7 +28,7 @@
   margin: auto;
   border-radius: var(--border-radius-lg);
   background: var(--color-white);
-  padding: 22px;
+  /* padding: 22px; */
   box-shadow:
     0 30px 70px rgba(0, 0, 0, 0.12),
     0 10px 24px rgba(56, 87, 133, 0.15);
@@ -56,7 +56,7 @@
   object-fit: contain;
   border-radius: var(--border-radius-md);
   background: var(--color-white);
-  padding: 10px;
+  /* padding: 10px; */
   cursor: pointer;
   border: 2px solid transparent;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -218,5 +218,62 @@
 
   .sp-thumbs {
     flex-wrap: wrap;
+  }
+}
+/* ===== Single Product Mobile Gallery Fix ===== */
+
+@media (max-width: 900px) {
+  /* Stack gallery nicely */
+  .sp-gallery {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  /* Thumbnails go horizontal */
+  .sp-thumbs {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .sp-thumb {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Center content */
+  .sp-content {
+    text-align: center;
+    align-items: center;
+  }
+
+  .sp-cta {
+    justify-content: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .sp-main-image {
+    max-width: 100%;
+    padding: 16px;
+  }
+
+  .sp-thumb {
+    width: 64px;
+    height: 64px;
+  }
+
+  .sp-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sp-cta .primary-btn,
+  .sp-cta .secondary-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

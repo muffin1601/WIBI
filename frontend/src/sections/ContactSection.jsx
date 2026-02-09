@@ -108,13 +108,13 @@ export default function ContactSection() {
 
           <div className="contact-cards">
             <div className="contact-card reveal delay-1">
-              <div className="icon-box icon-float">
+              {/* <div className="icon-box icon-float">
                 <MapPin size={22} />
               </div>
               <div className="contact-card-text">
                 <h4>Our Location</h4>
                 <p>9 Hill Lane, Ruislip, HA4 7JJ, United Kingdom</p>
-              </div>
+              </div> */}
             </div>
 
             <div className="contact-card reveal delay-2">
@@ -128,13 +128,13 @@ export default function ContactSection() {
             </div>
 
             <div className="contact-card reveal delay-3">
-              <div className="icon-box icon-float">
+              {/* <div className="icon-box icon-float">
                 <Phone size={22} />
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <h4>Call Us</h4>
                 <p>+44 1234 567 890</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

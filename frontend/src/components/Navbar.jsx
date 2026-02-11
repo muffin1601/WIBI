@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import "./styles/Navbar.css"
-import logo from "/logo (3).webp"
-import EnquiryModal from "../components/EnquiryModal"
+import logo from "/logo.webp"
+import EnquiryModal from "./EnquiryModal"
 import { fetchCategories } from "../api/categoryApi"
 import { ChevronDown } from "lucide-react"
 import { Menu } from "lucide-react"
-import Sidebar from "./Sidebar"
+import Sidebar from "../sections/Sidebar"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)

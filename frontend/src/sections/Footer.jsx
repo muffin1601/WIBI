@@ -6,10 +6,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-col">
-          <h4>Address</h4>
-          <p>9 Hill Lane</p>
-          <p>Ruislip, HA4 7JJ</p>
-          <p>United Kingdom</p>
+          <h4>Quick Links</h4>
+          <a href="/categories" className="footer-link">Explore Products</a>
+          <a href="/catalogue" className="footer-link">View Catalogues</a>
         </div>
 
         <div className="footer-center">

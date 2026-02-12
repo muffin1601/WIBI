@@ -57,7 +57,7 @@
   border-radius: var(--border-radius-md);
   background: var(--color-white);
   /* padding: 10px; */
-  cursor: pointer;
+  /* cursor: pointer; */
   border: 2px solid transparent;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition:
@@ -179,7 +179,7 @@
     var(--color-primary-dark)
   );
   color: var(--color-bg-light);
-  cursor: pointer;
+  /* cursor: pointer; */
   transform: translateY(-3px);
   box-shadow: 0 14px 30px rgba(56, 87, 133, 0.35);
 }

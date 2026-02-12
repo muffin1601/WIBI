@@ -1,0 +1,46 @@
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 10px rgba(90, 130, 255, 0.6);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(140, 170, 255, 0.4);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+
+.cursor-active {
+  transform: translate(-50%, -50%) scale(1.8);
+  box-shadow: 0 0 20px rgba(120, 160, 255, 0.9);
+}
+
+.ring-active {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(160, 190, 255, 0.8);
+  background: radial-gradient(
+    circle,
+    rgba(140, 170, 255, 0.15),
+    transparent 60%
+  );
+}

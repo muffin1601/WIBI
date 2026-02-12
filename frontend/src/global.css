@@ -5,7 +5,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
 }
+
+
+/* Allow cursor on mobile */
+@media (max-width: 768px) {
+  * {
+    cursor: auto;
+  }
+}
+
 
 
 :root {

@@ -99,7 +99,7 @@
     var(--color-primary),
     var(--color-primary-dark)
   );
-  cursor: pointer;
+  /* cursor: pointer; */
   display: flex;
   align-items: center;
   justify-content: center;

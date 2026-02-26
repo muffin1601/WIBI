@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wibi-water.co.uk/sitemap.xml

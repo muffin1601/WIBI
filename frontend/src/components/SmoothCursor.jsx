@@ -11,7 +11,7 @@ export default function SmoothCursor() {
     let ringX = 0,
       ringY = 0;
 
-    const offset = 12; // distance from arrow
+    const offset = 12; 
 
     const moveMouse = (e) => {
       mouseX = e.clientX + offset;

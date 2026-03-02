@@ -28,7 +28,6 @@ export default function CatalogueSection() {
     return () => observer.disconnect()
   }, [])
 
-
   const downloadPDF = (url) => {
     const link = document.createElement("a")
     link.href = url
@@ -44,24 +43,47 @@ export default function CatalogueSection() {
         <div className="catalogue-container">
           <div className="catalogue-card reveal delay-1">
             <div className="catalogue-content">
+
               <span className="catalogue-tag reveal delay-2">
-                Product Catalogue
+                Global Pool Engineering
               </span>
 
+              {/* ✅ SEO H2 */}
               <h2 className="catalogue-heading reveal delay-3">
-                Complete Pool & Industrial
-                <br />
-                Product Catalogue
+                Complete Global Pool Equipment & Engineering Solutions
               </h2>
 
               <p className="catalogue-text reveal delay-4">
-                Explore our complete range of premium pool equipment, industrial
-                systems, and advanced filtration solutions. Designed for
-                architects, contractors, and engineers seeking reliability,
-                performance, and long-term efficiency.
+                As global swimming pool equipment manufacturers and suppliers,
+                we deliver integrated filtration systems, energy-efficient
+                circulation pumps, intelligent automation controls, advanced
+                water treatment technologies, and heating solutions engineered
+                for long-term reliability and performance.
               </p>
 
-              <div className="catalogue-actions reveal delay-5">
+              <p className="catalogue-text reveal delay-4">
+                Our solutions include high-rate sand filters, cartridge systems,
+                automatic chlorination, salt chlorinators, UV and ozone
+                disinfection systems, LED underwater lighting, heat pumps,
+                solar heating technologies, smart pool controllers, and
+                complete hydraulic engineering support for luxury residential,
+                hospitality, and large-scale commercial projects worldwide.
+              </p>
+
+              {/* ✅ Authority Block */}
+              <div className="catalogue-features reveal delay-5">
+                <h3>Why Choose Us as Your Global Pool Equipment Partner?</h3>
+                <ul>
+                  <li>International Project Experience</li>
+                  <li>Premium Certified Equipment</li>
+                  <li>Energy-Efficient & Sustainable Solutions</li>
+                  <li>Advanced Engineering & Hydraulic Design Support</li>
+                  <li>Worldwide Equipment Supply & Logistics Network</li>
+                  <li>Strong Technical After-Sales Support</li>
+                </ul>
+              </div>
+
+              <div className="catalogue-actions reveal delay-6">
                 <button
                   type="button"
                   className="catalogue-btn primary"
@@ -78,22 +100,23 @@ export default function CatalogueSection() {
               </div>
 
               <p className="catalogue-help-text reveal delay-6">
-                📄 Catalogue size: <strong>266 MB</strong>.
-                {/* Please use a stable internet connection for uninterrupted download. */}
+                📄 Catalogue size: <strong>266 MB</strong>
               </p>
+
             </div>
 
             <div className="catalogue-visual reveal delay-3">
               <div className="catalogue-glow" />
               <img
                 src="https://images.pexels.com/photos/6420102/pexels-photo-6420102.jpeg"
-                alt="WIBI Product Catalogue"
+                alt="Global Swimming Pool Equipment Catalogue"
                 className="catalogue-image"
               />
             </div>
           </div>
         </div>
       </section>
+
       <CatalogueLeadModal
         open={openCatalogue}
         onClose={() => setOpenCatalogue(false)}

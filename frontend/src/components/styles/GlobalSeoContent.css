@@ -1,0 +1,43 @@
+.seo-authority {
+  padding: 120px 0;
+  background: #f7f8fa;
+}
+
+.seo-container {
+  width: 85%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.seo-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.seo-header h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.seo-header p {
+  max-width: 700px;
+  margin: auto;
+  color: #666;
+}
+
+.seo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.seo-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.seo-card:hover {
+  transform: translateY(-5px);
+}

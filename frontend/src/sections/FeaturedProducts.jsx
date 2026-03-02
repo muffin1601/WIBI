@@ -22,12 +22,12 @@ export default function FeaturedProducts() {
   ]
 
   const limitWords = (text, limit = 18) => {
-  if (!text) return ""
-  const words = text.split(" ")
-  return words.length > limit
-    ? words.slice(0, limit).join(" ") + "..."
-    : text
-}
+    if (!text) return ""
+    const words = text.split(" ")
+    return words.length > limit
+      ? words.slice(0, limit).join(" ") + "..."
+      : text
+  }
 
 
   useEffect(() => {
@@ -78,10 +78,19 @@ export default function FeaturedProducts() {
   return (
     <section className="featured-products">
       <div className="fp-container">
-        <span className="fp-tag">Featured Products</span>
-        <h2 className="fp-heading">Premium Pool & Industrial Solutions</h2>
-        <p className="fp-subtext">Engineered for performance, reliability, and long-term efficiency.</p>
+        <span className="fp-tag">
+          Our Global Swimming Pool Equipment Range
+        </span>
 
+        <h2 className="fp-heading">
+          Filtration, Pumps, Water Treatment & Automation Systems
+        </h2>
+
+        <p className="fp-subtext">
+          High-performance filtration systems, energy-efficient pumps,
+          intelligent automation, LED lighting, heating systems,
+          and water treatment solutions.
+        </p>
         <div className="fp-carousel">
           <button className="fp-arrow fp-arrow-left" onClick={() => slide(1)}>
             <ChevronLeft size={22} />

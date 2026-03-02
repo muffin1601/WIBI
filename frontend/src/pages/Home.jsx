@@ -7,6 +7,7 @@ import CatalogueSection from "../sections/CatalogueSection"
 import Testimonials from "../sections/Testimonials"
 import CtaSection from "../sections/CtaSection"
 import NewsletterSection from "../sections/NewsletterSection"
+// import GlobalSeoContent from "../components/GlobalSeoContent"
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         <AboutSection />
         <FeaturedProducts />
         <CatalogueSection />
+        {/* <GlobalSeoContent /> */}
         <Testimonials />
         <CtaSection />
         <NewsletterSection />

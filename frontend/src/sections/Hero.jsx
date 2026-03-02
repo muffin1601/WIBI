@@ -25,48 +25,56 @@ export default function Hero() {
       <div className="hero-content">
         <p className="hero-tag">
           <Waves size={16} className="icon subtle-float" />
-          Premium Water Solutions
+          Global Pool Solutions
         </p>
 
+        
         <h1 className="hero-title">
-          Advanced Pool & <br />
-          Water Body Equipment
+          Global Swimming Pool Equipment
+          <br />
+          Manufacturers & Suppliers
         </h1>
 
         <p className="hero-subtext">
-          Supplying world-class swimming pool systems, filtration,
-          fountains, and aquatic infrastructure for commercial
-          and residential projects.
+          We are a globally trusted swimming pool equipment manufacturer
+          and supplier, delivering advanced pool technology, premium-quality
+          components, and complete swimming pool solutions worldwide.
         </p>
 
         <div className="hero-actions">
-          <button onClick={() => window.location.href = "/categories"} className="primary-btn">
+          <button
+            onClick={() => (window.location.href = "/categories")}
+            className="primary-btn"
+          >
             Explore Products
             <ArrowRight size={18} className="btn-icon" />
           </button>
 
-          <button onClick={() => window.location.href = "/contact"} className="secondary-btn">
+          <button
+            onClick={() => (window.location.href = "/contact")}
+            className="secondary-btn"
+          >
             <Mail size={16} className="btn-icon" />
-            Contact Us
+            Request a Quote
           </button>
         </div>
 
         <p className="hero-cta-note">
-          Engineered for performance • Trusted by professionals worldwide
+          Reliable • Sustainable • Innovative Pool Solutions Worldwide
         </p>
 
         <div className="hero-highlights">
           <div className="highlight-chip">
             <ShieldCheck size={18} />
-            Certified Quality
+            Premium Certified Equipment
           </div>
           <div className="highlight-chip">
             <Settings size={18} />
-            Precision Engineered
+            Advanced Engineering Support
           </div>
           <div className="highlight-chip">
             <Award size={18} />
-            Global Standards
+            International Project Experience
           </div>
         </div>
       </div>

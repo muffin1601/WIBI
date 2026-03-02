@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import "./styles/AboutSection2.css"
-import { Waves, Cpu, Globe2, Target } from "lucide-react"
+import { Waves, Target } from "lucide-react"
 
 export default function AboutSection2() {
   const aboutRef = useRef(null)
@@ -28,67 +28,59 @@ export default function AboutSection2() {
       <div className="about-layout">
 
         <div className="about-text-wrap">
+
           <span className="about-label reveal delay-1">
             <Waves size={16} className="about-label-icon-2 float-soft" />
-            About WIBI
+            Global Equipment Range
           </span>
 
+          {/* ✅ H2 for SEO hierarchy */}
           <h2 className="about-title reveal delay-2">
-            Premium Aquatic & <br />
-            Wellness Infrastructure
+            Our Global Swimming Pool Equipment Range
           </h2>
 
           <p className="about-paragraph reveal delay-3">
-            {/* <Cpu size={22} className="inline-icon-2 pulse-soft" /> */}
-            WIBI delivers premium aquatic and wellness infrastructure for the
-            world’s most ambitious projects. With a portfolio of over 5,600
-            solutions — from AI-enabled systems to seamless glass-edge pools —
-            we empower contractors, architects, and developers with
-            precision-engineered, visually striking, and future-ready equipment.
+            We manufacture and supply high-performance swimming pool
+            filtration and circulation systems including high-rate sand
+            filters, cartridge and media filters, automatic backwash
+            systems, and multiport valve assemblies engineered for
+            long-term operational efficiency.
           </p>
 
           <p className="about-paragraph reveal delay-4">
-            {/* <Globe2 size={22} className="inline-icon-2 pulse-delay" /> */}
-            Trusted across Europe, the USA, and rapidly growing markets such as
-            the Indian subcontinent, China, and Southeast Asia, we bring proven
-            expertise and a commitment to simplifying complexity — ensuring
-            every project performs beautifully for years to come.
+            Our product portfolio also includes energy-efficient variable
+            speed swimming pool pumps, commercial-grade filtration pumps,
+            automatic chlorination systems, salt chlorinators, UV
+            disinfection units, ozone treatment systems, and intelligent
+            pool automation solutions for seamless performance control.
           </p>
 
           <div className="about-vision reveal delay-5">
             <h4 className="vision-heading">
               <Target size={22} className="vision-icon-2 float-soft" />
-              Vision
+              Engineering Excellence
             </h4>
             <p className="vision-description">
-              To set the global standard in premium pool infrastructure — where
-              innovation shapes possibility, elegance defines experience, and
-              excellence is simply the baseline.
+              From LED underwater lighting and architectural RGB systems
+              to heat pumps, solar heating solutions, smart pool
+              controllers, and advanced water treatment technologies,
+              our integrated approach ensures reliability, sustainability,
+              and performance across residential, hospitality, and
+              commercial aquatic environments worldwide.
             </p>
           </div>
+
         </div>
 
         <div className="about-media reveal delay-3">
           <img
             src="/assets/about-img-2.webp"
-            alt="WIBI Aquatic Innovation"
+            alt="Swimming Pool Filtration and Automation Systems"
             className="about-media-image spin-slow"
           />
         </div>
-      </div>
 
-      {/* <div className="about-wave">
-        <svg className="about-wave-svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path
-            d="M0,64 C120,96 240,32 360,42 C480,52 600,96 720,86 C840,76 960,32 1080,42 C1200,52 1320,96 1440,64 L1440,120 L0,120 Z"
-            className="wave-shape wave-front"
-          />
-          <path
-            d="M0,72 C160,88 320,48 480,58 C640,68 800,98 960,88 C1120,78 1280,48 1440,58 L1440,120 L0,120 Z"
-            className="wave-shape wave-back"
-          />
-        </svg>
-      </div> */}
+      </div>
     </section>
   )
 }

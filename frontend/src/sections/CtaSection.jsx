@@ -29,19 +29,17 @@ export default function CtaSection() {
       <div className="cta-container cta-grid">
         <div className="cta-content">
           <span className="cta-tag reveal delay-1">
-            Let’s Work Together
+            Global Pool Equipment Consultation
           </span>
 
           <h2 className="cta-heading reveal delay-2">
-            Ready to Build Premium
-            <br />
-            Aquatic & Industrial Solutions?
+            Get Free Global Pool Equipment Consultation & Quote
           </h2>
 
           <p className="cta-text reveal delay-3">
-            Speak with our experts to explore customized pool infrastructure,
-            advanced filtration systems, and long-term performance solutions
-            tailored to your project.
+            We are a globally trusted swimming pool equipment manufacturer and supplier,
+            delivering advanced pool technology and premium-quality components worldwide.
+            Our solutions ensure safety, durability, energy efficiency, and superior user experience.
           </p>
 
           <div className="cta-actions reveal delay-4">
